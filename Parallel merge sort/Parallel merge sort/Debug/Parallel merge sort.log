@@ -1,15 +1,12 @@
-﻿  stdafx.cpp
-  Parallelmergesort.cpp
-c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\parallel merge sort\parallel merge sort\parallelmergesort.cpp(40): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\parallel merge sort\parallel merge sort\parallelmergesort.cpp(41): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\parallel merge sort\parallel merge sort\parallelmergesort.cpp(52): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\parallel merge sort\parallel merge sort\parallelmergesort.cpp(62): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\parallel merge sort\parallel merge sort\parallelmergesort.cpp(67): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\parallel merge sort\parallel merge sort\parallelmergesort.cpp(104): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\parallel merge sort\parallel merge sort\parallelmergesort.cpp(105): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\parallel merge sort\parallel merge sort\parallelmergesort.cpp(129): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\parallel merge sort\parallel merge sort\parallelmergesort.cpp(200): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\parallel merge sort\parallel merge sort\parallelmergesort.cpp(224): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\parallel merge sort\parallel merge sort\parallelmergesort.cpp(183): warning C4715: mergeSort: значение возвращается не при всех путях выполнения
+﻿  Parallelmergesort.cpp
+c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\parallel merge sort\parallel merge sort\parallelmergesort.cpp(42): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\parallel merge sort\parallel merge sort\parallelmergesort.cpp(43): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\parallel merge sort\parallel merge sort\parallelmergesort.cpp(54): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\parallel merge sort\parallel merge sort\parallelmergesort.cpp(64): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\parallel merge sort\parallel merge sort\parallelmergesort.cpp(69): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\parallel merge sort\parallel merge sort\parallelmergesort.cpp(103): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\parallel merge sort\parallel merge sort\parallelmergesort.cpp(181): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\parallel merge sort\parallel merge sort\parallelmergesort.cpp(206): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\parallel merge sort\parallel merge sort\parallelmergesort.cpp(164): warning C4715: mergeSort: значение возвращается не при всех путях выполнения
   Parallel merge sort.vcxproj -> C:\Users\117th\Documents\Проекты VC или XCode\Практика_по_операционным_системам\Parallel merge sort\Debug\Parallel merge sort.exe
   Parallel merge sort.vcxproj -> C:\Users\117th\Documents\Проекты VC или XCode\Практика_по_операционным_системам\Parallel merge sort\Debug\Parallel merge sort.pdb (Partial PDB)

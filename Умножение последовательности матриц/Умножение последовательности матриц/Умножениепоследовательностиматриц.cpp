@@ -43,6 +43,27 @@ public:
 
 		return true;
 	}
+
+	friend const Matrix operator*(const Matrix &left, const Matrix &right) {
+		Matrix result;
+
+		//n x k * k x m
+		int n = left.matrix.size(), k = right.matrix.size(), m = 0;
+		if ((n == 0) || (k == 0) || (k != left.matrix[0].size())) throw invalid_argument("not matching size");
+		if (k != 0) m = right.matrix[0].size();
+
+		for (int i = 0; i < n; i++) {
+			vector<double> line;
+			for (int j = 0; j < m; j++) {
+				int element = 0;
+				for (int r = 0; r < k; r++) element += left.matrix[i][r] * right.matrix[r][j];
+				line.push_back(element);
+			}
+			result->matrix.push_back(line);
+		}
+
+		return result;
+	}
 };
 
 class Holder {
@@ -107,7 +128,7 @@ Matrix multiply(Matrix left, Matrix right) {
 	return *result;
 }
 
-Matrix multiplyVector(vector<Matrix> vect) {
+Matrix multiplyMatrixVector(vector<Matrix> vect) {
 
 	Matrix result;
 
@@ -164,7 +185,7 @@ unsigned int __stdcall multiplyVectorThreads(void *param) {
 
 	vector<Matrix> part = params->holderObj->holder[id];
 
-	result.push_back( multiplyVector(part) );
+	result.push_back( multiplyMatrixVector(part) );
 
 	params->holderObj->holder[id] = result;
 
@@ -190,9 +211,13 @@ int main()
 
 	vector<Matrix> randomVector = getRandomSequence(9);
 
+	Matrix test = left*right;
+
+	test.printMatrix();
+
 	cout << "Vector function: \n";
 	clock_t begin_time = clock();
-	Matrix singleMatrix = multiplyVector(randomVector);
+	Matrix singleMatrix = multiplyMatrixVector(randomVector);
 	cout << "Time taken in single thread function " << float(clock() - begin_time) / CLOCKS_PER_SEC << "\n";
 	singleMatrix.printMatrix();
 
@@ -219,7 +244,7 @@ int main()
 
 	WaitForMultipleObjects(numCores, threads, true, INFINITE);
 	
-	Matrix threadMatrix = multiplyVector(parseHolder(*holder));
+	Matrix threadMatrix = multiplyMatrixVector(parseHolder(*holder));
 	cout << "Time taken with all cores used: " << float(clock() - begin_time) / CLOCKS_PER_SEC << "\n";
 
 	threadMatrix.printMatrix();
