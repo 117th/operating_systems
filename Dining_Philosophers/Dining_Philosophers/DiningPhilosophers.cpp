@@ -13,15 +13,16 @@ using namespace std;
 
 class Philosopher {
 	int id;
-	time_t lastMeal;
 	bool isDead;
 
 	public: 
+
+	time_t lastMeal;
 		
 	void eat() {
 
 		if (lastMeal == NULL) lastMeal = clock();
-		if (clock() - lastMeal >= 2000) {
+		if (clock() - lastMeal >= 10000) {
 			cout << "\n\n\n" << id << " died because of starving\n\n\n";
 			isDead = true;
 			return;
@@ -30,7 +31,7 @@ class Philosopher {
 		lastMeal = clock();
 
 		cout << id << " started eating\n";
-		int wait = rand() % ((id+1)*100) + 1;
+		int wait = rand() % ((id+1)*1000) + 1;
 		Sleep(wait);
 		cout << id << " finished eating\n";
 	}
@@ -55,6 +56,8 @@ class Philosopher {
 struct Table {
 	vector<Philosopher> philosophers;
 	vector<mutex> forks;
+
+	vector<int> ids;
 };
 
 struct Param {
@@ -80,24 +83,29 @@ unsigned int __stdcall simulate(void *param) {
 
 	while (true) {
 
+		pass:
+
 		time_t started = clock();
 		bool lockedLeft = false, lockedRight = false;
 
-		while (clock() - started <= 1300) {
+		while (clock() - started <= (id + 1) * 300) {
 			if (params->table->forks[leftForkIndex].try_lock()) {
 				lockedLeft = true;
 				break;
 			}
 		}
-		while (clock() - started <= 1300) {
+		started = clock();
+		while (clock() - started <= (id + 1) * 300) {
 			if (params->table->forks[rightForkIndex].try_lock()) {
 				lockedRight = true;
 				break;
 			}
 		}
 
-
-		params->table->philosophers[id].eat();
+		if (lockedLeft && lockedRight) {
+			params->table->philosophers[id].eat();
+			params->table->ids.push_back(id);
+		}
 
 		if(lockedLeft) params->table->forks[leftForkIndex].unlock();
 		if(lockedRight) params->table->forks[rightForkIndex].unlock();

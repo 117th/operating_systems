@@ -1,4 +1,5 @@
 ﻿  DiningPhilosophers.cpp
-c:\users\117th\documents\проекты vc или xcode\dining_philosophers\dining_philosophers\diningphilosophers.cpp(79): warning C4018: <: несоответствие типов со знаком и без знака
-  Dining_Philosophers.vcxproj -> C:\Users\117th\Documents\Проекты VC или XCode\Dining_Philosophers\Debug\Dining_Philosophers.exe
-  Dining_Philosophers.vcxproj -> C:\Users\117th\Documents\Проекты VC или XCode\Dining_Philosophers\Debug\Dining_Philosophers.pdb (Partial PDB)
+c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\dining_philosophers\dining_philosophers\diningphilosophers.cpp(82): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\117th\documents\проекты vc или xcode\практика_по_операционным_системам\dining_philosophers\dining_philosophers\diningphilosophers.cpp(86): warning C4102: pass: неиспользованная метка
+  Dining_Philosophers.vcxproj -> C:\Users\117th\Documents\Проекты VC или XCode\Практика_по_операционным_системам\Dining_Philosophers\Debug\Dining_Philosophers.exe
+  Dining_Philosophers.vcxproj -> C:\Users\117th\Documents\Проекты VC или XCode\Практика_по_операционным_системам\Dining_Philosophers\Debug\Dining_Philosophers.pdb (Partial PDB)
