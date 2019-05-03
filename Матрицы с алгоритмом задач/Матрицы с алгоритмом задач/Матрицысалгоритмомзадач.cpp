@@ -79,7 +79,7 @@ public:
 
 		int length = vect.size();
 
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < length + 1; i++) {
 			vector<HANDLE> temp(length);
 			events.push_back(temp);
 		}
@@ -149,16 +149,15 @@ unsigned int __stdcall multiplyVectorThreads(void *param) {
 
 	for (int i = 0; i < length; i++) {
 		params->holderObj->holder[steps[i].left] = params->holderObj->holder[steps[i].left] * params->holderObj->holder[steps[i].right];
-		cout << "thread " << params->id << " in step no: " << i << " left = " << steps[i].left << " right = " << steps[i].right << " and wait for " << steps[i].waitFor << "\n";
-		cout << "Event set\n Length of events: " << params->holderObj->events[params->id].size() << "\n";
-		//cout << "[i][j] " << params->holderObj->events[params->id][i] << "\n";
 		SetEvent(params->holderObj->events[params->id][i]);
-		cout << "Waiting\n";
 		if (steps[i].waitFor == -1) return 0;
-		cout << "Check completed\n";
-		
+		cout << "thread " << params->id << " step " << i << " waiting for " << steps[i].waitFor << "\n";
+		//Sleep(1);
 		WaitForSingleObject(params->holderObj->events[steps[i].waitFor][i], INFINITE);
 	}
+
+	//когда поток заканчивает работу, забиваем ВСЕ его события
+	for (int i = 0; i < params->holderObj->events[params->id].size(); i++) SetEvent(params->holderObj->events[params->id][i]);
 
 	return 0;
 }
@@ -182,12 +181,13 @@ int main()
 	matrixVector.push_back(left);
 	matrixVector.push_back(right);
 	matrixVector.push_back(third);
+	matrixVector.push_back(four);
 
-	int amountOfMatrix = 4;
+	int amountOfMatrix = 8;
 
 	vector<Matrix> randomVector = getRandomSequence(amountOfMatrix);
 
-	//matrixVector = randomVector;
+	matrixVector = randomVector;
 
 	clock_t begin_time = clock();
 	Matrix singleMatrix = multiplyMatrixVector(matrixVector);
@@ -204,15 +204,11 @@ int main()
 
 	Holder *holder = new Holder(matrixVector);
 
-	begin_time = clock();
-
 	vector<Task> tasks = tasking(numCores, amountOfMatrix);
 
-	for (Task task : tasks) {
-		printTask(task);
-	}
+	for (Task task : tasks) printTask(task);
 
-	cout << holder->events.size() << " -------\n";
+	begin_time = clock();
 
 	for (int i = 0; i < numCores; i++) {
 

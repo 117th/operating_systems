@@ -1,0 +1,4 @@
+﻿  DiningPhilosophers.cpp
+c:\users\117th\documents\проекты vc или xcode\dining_philosophers\dining_philosophers\diningphilosophers.cpp(79): warning C4018: <: несоответствие типов со знаком и без знака
+  Dining_Philosophers.vcxproj -> C:\Users\117th\Documents\Проекты VC или XCode\Dining_Philosophers\Debug\Dining_Philosophers.exe
+  Dining_Philosophers.vcxproj -> C:\Users\117th\Documents\Проекты VC или XCode\Dining_Philosophers\Debug\Dining_Philosophers.pdb (Partial PDB)
